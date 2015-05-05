@@ -21,5 +21,9 @@
     "url": "https://github.com/daanvanham/hapi-status/issues",
     "email": "daan@vanham.io"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "code": "^1.4.0",
+    "lab": "^5.8.0"
+  }
 }
