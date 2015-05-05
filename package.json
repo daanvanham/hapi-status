@@ -3,9 +3,23 @@
   "version": "0.0.1",
   "description": "Easily add status code and headers to a response in Hapi",
   "main": "index.js",
+  "keywords": [
+      "hapi",
+      "response",
+      "statusCode"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/lab -f -t 100 -m 3000",
+    "test-coverage": "./node_modules/.bin/lab -f -r html -m 3000 -o report.html"
   },
   "author": "Daan van Ham <daan@vanham.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daanvanham/hapi-status.git"
+  },
+  "bugs": {
+    "url": "https://github.com/daanvanham/hapi-status/issues",
+    "email": "daan@vanham.io"
+  },
   "license": "MIT"
 }
