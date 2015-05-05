@@ -3,6 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/daanvanham/hapi-status/badge.svg)](https://coveralls.io/r/daanvanham/hapi-status)
 
 # Hapi Status
+Easily reply to your request with a statusCode and optional headers
 
 ## Install
 ```
