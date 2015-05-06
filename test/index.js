@@ -60,14 +60,6 @@ Object.keys(status).forEach(function(key) {
 			done();
 		});
 
-		lab.test('should return only statusCode when no result present', function(done) {
-			var response = status[key].apply(null, [new Reply()]).result;
-
-			Code.expect(!('error' in response) && !('result' in response)).to.equal(true);
-
-			done();
-		});
-
 		lab.test('should be able to add headers', function(done) {
 			var response = status[key].apply(null, [new Reply(), 'test', {'Cache-Control': 'max-age=0, no-cache, no-store'}]);
 
