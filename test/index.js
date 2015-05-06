@@ -11,8 +11,8 @@ function Reply() {
 
 	reply.headers = {};
 
-	reply.code = function code(status) {
-		reply.statusCode = status;
+	reply.code = function code(statusCode) {
+		reply.statusCode = statusCode;
 		return reply;
 	};
 
@@ -38,7 +38,7 @@ function Reply() {
 Object.keys(status).forEach(function(key) {
 	lab.experiment(key, function() {
 		lab.test('should serve the right statusCode', function(done) {
-			var response = status[key].apply(null, [new Reply(), 'test']);
+			var response = status[key].apply(null, [new Reply()]);
 
 			Code.expect(response.result.statusCode).to.equal(response.statusCode);
 
@@ -65,6 +65,15 @@ Object.keys(status).forEach(function(key) {
 
 			Code.expect('Cache-Control' in response.headers).to.equal(true);
 			Code.expect(response.headers['Cache-Control']).to.equal('max-age=0, no-cache, no-store');
+
+			done();
+		});
+
+		lab.test('should serve the right content type', function(done) {
+			var response = status[key].apply(null, [new Reply(), '<h1>Test</h1>', {'content-type': 'text/html'}]);
+
+			Code.expect(response.headers['content-type']).to.equal('text/html');
+			Code.expect(response.result).to.equal('<h1>Test</h1>');
 
 			done();
 		});
