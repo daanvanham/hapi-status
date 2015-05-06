@@ -1,6 +1,6 @@
 {
   "name": "hapi-status",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Easily add status code and headers to a response in Hapi",
   "main": "index.js",
   "keywords": [
