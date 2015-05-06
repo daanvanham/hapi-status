@@ -5,3 +5,6 @@ node_js:
 - '0.10'
 - iojs
 after_script: ./node_modules/.bin/lab -r lcov | ./node_modules/.bin/coveralls
+notifications:
+  slack:
+    secure: Rm18dSRn7Ny+hE/xr0fSy2/Qom5h+XltDM1Fh5VoXLUUFYW2NGV4W/0z8V2Xxo2NCfKxPHpLH88HBEJFtbb8Ul4+mFXAgDsSO19ffflliyvI/pd+olYz2Gyp60CLmcilOG2s0Vqkv+rKJipb2QntEeQaOQdQpC07Q4vjCZHczds=
