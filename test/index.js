@@ -3,7 +3,7 @@
 var Lab = require('lab'),
 	lab = exports.lab = Lab.script(),
 	Code = require('code'),
-	status = require('../index');
+	status = require('../lib');
 
 function Reply() {
 	var reply = this;
