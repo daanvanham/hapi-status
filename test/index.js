@@ -3,7 +3,6 @@
 var Lab = require('lab'),
 	lab = exports.lab = Lab.script(),
 	Code = require('code'),
-	HTTPStatusCode = require('http-status-code'),
 	status = require('../index');
 
 function Reply() {
