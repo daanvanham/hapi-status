@@ -78,3 +78,51 @@ Object.keys(status).forEach(function(key) {
 		});
 	});
 });
+
+lab.experiment('add a new delegation', function() {
+	lab.test('should be skipped if it\'s not a function', function(done) {
+		var response;
+
+		status.addDelegation('textHtml', 'some-text');
+
+		response = status.ok.apply(null, [new Reply(), 'Test', {'content-type': 'text/html'}]);
+
+		Code.expect(response.result).to.equal('Test');
+
+		done();
+	});
+
+	lab.test('should be able to alter the response.result', function(done) {
+		var response;
+
+		status.addDelegation('textHtml', function() {
+			return 'Hi!';
+		});
+
+		response = status.ok.apply(null, [new Reply(), 'Test', {'content-type': 'text/html'}]);
+
+		Code.expect(response.result).to.equal('Hi!');
+
+		done();
+	});
+
+	lab.test('should be able to alter an existing delegate', function(done) {
+		var response;
+
+		response = status.ok.apply(null, [new Reply(), ['Test']]);
+
+		Code.expect(response.result).to.be.an.object();
+		Code.expect(response.result.statusCode).to.be.a.number();
+		Code.expect(response.result.result).to.be.an.array();
+
+		status.addDelegation('applicationJson', function(result) {
+			return result;
+		});
+
+		response = status.ok.apply(null, [new Reply(), ['Test']]);
+
+		Code.expect(response.result).to.be.an.array();
+
+		done();
+	});
+});
