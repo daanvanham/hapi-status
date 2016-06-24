@@ -1,6 +1,6 @@
 {
   "name": "hapi-status",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Easily add status code and headers to a response in Hapi",
   "main": "./lib",
   "keywords": [
